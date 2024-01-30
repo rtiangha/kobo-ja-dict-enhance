@@ -52,7 +52,7 @@ use File::Basename;
 use File::Spec;
 #use Data::Dumper;
 
-my $opt_edict = "edict2";
+my $opt_edict = "edict2u";
 my $opt_jadict = "dicthtml-jaxxdjs.zip";
 my $opt_japanese3 = "japanese3-data";
 my @opt_dicts;
@@ -231,8 +231,8 @@ Notes:
   percentage. So keeping with edict2 is fine.
 
 * The edict file can be downloaded from 
-  http://ftp.monash.edu.au/pub/nihongo/edict2.gz
-  Afterwards the file needs to be unpacked with 'gunzip edict2.gz'
+  http://ftp.usf.edu/pub/ftp.monash.edu.au/pub/nihongo/edict2u.gz
+  Afterwards the file needs to be unpacked with 'gunzip edict2u.gz'
 
 * For German translations get the Edict2 version of Wadoku from
   http://www.wadoku.de/wiki/display/WAD/Downloads+und+Links
@@ -260,7 +260,7 @@ sub load_edict {
   $edict{'__TYPE'} = 'edict2';
   $edict{'__FILE'} = $edict;
   $edict{'__USED'} = 0;
-  open (my $wf, '<:encoding(euc-jp)', $edict) or die "Cannot open $edict: $?";
+  open (my $wf, '<:encoding(utf-8)', $edict) or die "Cannot open $edict: $?";
   print "loading edict2 type from $edict ... ";
   my $line = 0;
   while (<$wf>) {
